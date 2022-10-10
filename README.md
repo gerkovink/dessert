@@ -7,4 +7,9 @@ This project has been funded by the 2022 Open Science Fund at Utrecht University
 
 ---
 
+## Development
+We invite everyone to join the development for this package. You can view the progress and open issues and/or actions in the [`Have some dessert Project`](https://github.com/users/gerkovink/projects/2)
+
+---
+
 ![](https://www.gerkovink.com/images/pubdom.png)
