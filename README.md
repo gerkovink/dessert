@@ -1,4 +1,4 @@
-# dessert <a href='https://github.com/gerkovink/markup2022'><img src='hex-dessert.png' align="right" height="139" /></a>
+# dessert <a href='https://github.com/gerkovink/dessert'><img src='hex-dessert.png' align="right" height="139" /></a>
 Your favourite analysis recipe should always be followed by your favourite dessert!
 
 ---
