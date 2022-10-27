@@ -1,0 +1,17 @@
+Package: dessert
+Type: Package
+Title: Follow your favourite analysis recipe with an automated dessert
+Version: 0.1.0
+Authors@R: c(
+    person("Ernst Paul", "Swens", , "email", role = "aut",
+           comment = c(ORCID = "orcid")),
+    person("Hanne", "Oberman", , "h.i.oberman@uu.nl", role = "aut",
+           comment = c(ORCID = "0000-0003-3276-2141")),
+    person("Gerko", "Vink", , "g.vink@uu.nl", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0001-9767-1924")))
+Maintainer: Gerko Vink <g.vink@uu.nl>
+Description: Dessert recipes for automatic and standardized report generation 
+    for common analysis and data problems.
+License: AGPL (>= 3)
+Encoding: UTF-8
+LazyData: true
