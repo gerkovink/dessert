@@ -3,7 +3,7 @@
 
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
-<!-- badges: end --> \
+<!-- badges: end --> 
 
 # dessert
 <a href='https://github.com/gerkovink/dessert'><img src='img/hex-dessert.png' align="right" height="139" /></a>
