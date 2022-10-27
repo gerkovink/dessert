@@ -1,12 +1,6 @@
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 <!-- badges: start -->
 
-``` r
-usethis::use_lifecycle_badge("experimental")
-```
-
-    ## ✔ Setting active project to '/Users/gerko/surfdrive/Werk/GitHub/dessert'
-
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 <!-- badges: end --> \# dessert
