@@ -20,6 +20,7 @@ This project has been funded by the 2022 Open Science Fund at Utrecht University
 
 # Acknowledgement
 Thanks to Ernst Paul for creating the delicious hexagon.
+
 ---
 
 ![](https://www.gerkovink.com/images/pubdom.png)
