@@ -28,7 +28,7 @@ Please adopt the folowing contribution workflow:
 
 ------------------------------------------------------------------------
 
-# Funding
+## Funding
 
 This project has been funded by the 2022 Open Science Fund at Utrecht
 University. The repository with the Fund application form [can be found
@@ -36,7 +36,7 @@ here](https://github.com/gerkovink/OpenScienceFund2022).
 
 ------------------------------------------------------------------------
 
-# Acknowledgement
+## Acknowledgement
 
 Thanks to Ernst Paul for creating the delicious hexagon.
 
