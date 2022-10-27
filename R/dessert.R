@@ -8,8 +8,10 @@
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' fit <- lm(dist ~ speed, data = cars)
 #' dessert(fit)
+#' }
 dessert <- function(data,
                     output_format = NULL,
                     output_dir = NULL) {

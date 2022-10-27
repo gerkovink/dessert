@@ -20,6 +20,8 @@ A reproducible standard publication archive
 Run a dessert recipe on an analysis or data set
 }
 \examples{
+\dontrun{
 fit <- lm(dist ~ speed, data = cars)
-dessert(fit)
+dessert.lm(fit)
+}
 }
