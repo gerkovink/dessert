@@ -5,6 +5,8 @@
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 <!-- badges: end --> 
 
+------------------------------------------------------------------------
+
 # dessert
 <a href='https://github.com/gerkovink/dessert'><img src='img/hex_dessert.png' align="right" height="139" /></a>
 Your favourite analysis recipe should always be followed by your
@@ -36,6 +38,8 @@ here](https://github.com/gerkovink/OpenScienceFund2022).
 
 # Acknowledgement
 
-## Thanks to Ernst Paul for creating the delicious hexagon.
+Thanks to Ernst Paul for creating the delicious hexagon.
+
+------------------------------------------------------------------------
 
 ![](https://www.gerkovink.com/images/pubdom.png)
