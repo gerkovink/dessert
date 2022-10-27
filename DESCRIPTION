@@ -1,6 +1,6 @@
 Package: dessert
 Type: Package
-Title: Follow your favourite analysis recipe with an automated dessert
+Title: Create an automated and standardized report for your favourite analysis.
 Version: 0.1.0
 Authors@R: c(
     person("Ernst Paul", "Swens", , "email", role = "aut",
