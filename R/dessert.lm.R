@@ -17,13 +17,19 @@ dessert.lm <- function(data,
   rmdloc <- paste(.libPaths(), "dessert", "rmd", "lm.Rmd", sep = "/")
 
   # get the directory of the file calling dessert
-  if (is.null(output_dir)) {
-    output_dir <- dirname(rstudioapi::getSourceEditorContext()$path)
+  if (Sys.getenv("RSTUDIO") != 1){
+    if (is.null(output_dir)) {
+      output_dir <- dirname(rstudioapi::getSourceEditorContext()$path)
+    }
+
+    # if the file calling is not yet stored, use the work directory
+    if (!nzchar(output_dir)) {
+      # THE ABOVE CODE YIELDS PROBLEMS IN THE FUNCTION ENVIRONMENT
+      output_dir <- getwd()
+    }
   }
 
-  # if the file calling is not yet stored, use the work directory
-  if (!nzchar(output_dir)) {
-  # THE ABOVE CODE YIELDS PROBLEMS IN THE FUNCTION ENVIRONMENT
+  if (is.null(output_dir)) {
     output_dir <- getwd()
   }
 
