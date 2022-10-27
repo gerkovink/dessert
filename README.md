@@ -2,6 +2,8 @@
 <!-- badges: start -->
 [![Lifecycle:experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![R-CMD-check](https://github.com/gerkovink/dessert/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/gerkovink/dessert/actions/workflows/R-CMD-check.yaml)
+[![GitHub R
+packageversion](https://img.shields.io/github/r-package/v/gerkovink/dessert?color=yellow&label=dev)](https://github.com/gerkovink/dessert/blob/main/DESCRIPTION)
 <!-- badges: end -->
 
 ------------------------------------------------------------------------
