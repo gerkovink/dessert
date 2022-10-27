@@ -19,6 +19,10 @@ dessert.lm <- function(data,
   # get the directory of the file calling dessert
   if (Sys.getenv("RSTUDIO") != 1){
     if (is.null(output_dir)) {
+      output_dir <- getwd()
+    }
+  } else {
+    if (is.null(output_dir)) {
       output_dir <- dirname(rstudioapi::getSourceEditorContext()$path)
     }
 
@@ -29,9 +33,7 @@ dessert.lm <- function(data,
     }
   }
 
-  if (is.null(output_dir)) {
-    output_dir <- getwd()
-  }
+
 
   # copy the .Rmd file to the output location
   file.copy(from = rmdloc,
