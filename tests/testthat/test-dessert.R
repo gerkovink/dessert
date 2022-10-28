@@ -1,7 +1,12 @@
 # Create a linear model
 fit <- lm(dist ~ speed, data = cars)
 # Check file access and if sufficient, run tests
-if (file.access(".", 2) == 0) {
+rmd_access <-
+  file.access(paste(.libPaths(), "dessert", "rmd", "lm.Rmd", sep = "/"),
+              mode = 2) == 0
+wd_access <- file.access(getwd(),
+                         mode = 2) == 0
+if (rmd_access && wd_access) {
   # Test if runs
   testthat::expect_no_error(dessert(fit, output_format = "html_document"))
   # Test if storage location is communicated
