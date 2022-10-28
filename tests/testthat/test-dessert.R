@@ -1,5 +1,6 @@
 # Create a linear model
 fit <- lm(dist ~ speed, data = cars)
+testthat::expect_true(class(fit) == "lm")
 # Check file access and if sufficient, run tests
 rmd_access <-
   file.access(paste(.libPaths(), "dessert", "rmd", "lm.Rmd", sep = "/"),
@@ -11,7 +12,6 @@ if (rmd_access && wd_access) {
   testthat::expect_no_error(dessert(fit, output_format = "html_document"))
   # Test if storage location is communicated
   testthat::expect_output(dessert(fit, output_format = "html_document"))
-
   # Test if files are produced
   testthat::expect_true(file.exists("dessert_envir.RData"))
   testthat::expect_true(file.exists("lm.Rmd"))
