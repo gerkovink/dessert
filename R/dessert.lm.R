@@ -8,10 +8,15 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{
+#'
+#' # Call a lm dessert on a fitted linear model
 #' fit <- lm(dist ~ speed, data = cars)
 #' dessert.lm(fit)
-#' }
+#'
+#' # Remove the generated files in R-CMD-Check
+#' # Don't run as an example in real life
+#' unlink(c("dessert_envir.RData", "lm.Rmd", "lm.docx", "lm.html", "lm.pdf"))
+#'
 
 dessert.lm <- function(data,
                     output_format = NULL,
@@ -20,7 +25,7 @@ dessert.lm <- function(data,
   rmdloc <- paste(.libPaths(), "dessert", "rmd", "lm.Rmd", sep = "/")
 
   # get the directory of the file calling dessert
-  if (Sys.getenv("RSTUDIO") != 1){
+  if (!rstudioapi::isAvailable()){
     if (is.null(output_dir)) {
       output_dir <- getwd()
     }
