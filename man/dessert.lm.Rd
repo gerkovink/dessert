@@ -20,6 +20,13 @@ A reproducible standard publication archive
 Run a dessert recipe on an analysis or data set
 }
 \examples{
+
+# Call a lm dessert on a fitted linear model
 fit <- lm(dist ~ speed, data = cars)
-dessert(fit)
+dessert.lm(fit)
+
+# Remove the generated files in R-CMD-Check
+# Don't run as an example in real life
+unlink(c("dessert_envir.RData", "lm.Rmd", "lm.docx", "lm.html", "lm.pdf"))
+
 }
