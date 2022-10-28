@@ -4,3 +4,8 @@
 ^img$
 ^README\.Rmd$
 ^LICENSE\.md$
+^dessert_envir\.RData$
+^lm\.Rmd$
+^lm\.docx$
+^lm\.html$
+^lm\.pdf$
