@@ -52,6 +52,7 @@ dessert.lm <- function(data,
       )
     )
   } else {
+    #file.create(paste(output_dir, "lm.Rmd", sep = "/"))
     # copy the .Rmd file to the output location
     file.copy(
       from = rmdloc,
@@ -64,7 +65,7 @@ dessert.lm <- function(data,
     # default output is html, pdf, word, setting output format to all
     if (is.null(output_format)) {
       rmarkdown::render(
-        input = paste(output_dir, "lm.rmd", sep = "/"),
+        input = paste(output_dir, "lm.Rmd", sep = "/"),
         output_format = "all",
         output_dir = output_dir,
         quiet = TRUE
@@ -73,7 +74,7 @@ dessert.lm <- function(data,
     # user specified output format
     else {
       rmarkdown::render(
-        input = paste(output_dir, "lm.rmd", sep = "/"),
+        input = paste(output_dir, "lm.Rmd", sep = "/"),
         output_format = output_format,
         output_dir = output_dir,
         quiet = TRUE

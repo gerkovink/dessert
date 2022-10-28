@@ -13,3 +13,4 @@ testthat::expect_true(file.exists("lm.html"))
 unlink(c("dessert_envir.RData",
          "lm.Rmd",
          "lm.html"))
+
