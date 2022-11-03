@@ -44,3 +44,5 @@ Thanks to Ernst Paul for creating the delicious hexagon.
 ------------------------------------------------------------------------
 
 ![](https://www.gerkovink.com/images/pubdom.png)
+
+<a rel="me" href="https://fosstodon.org/@okreg">Mastodon</a>
