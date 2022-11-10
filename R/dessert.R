@@ -18,6 +18,13 @@ dessert <- function(data,
 
   # determine object class
   cls <- class(data)
+  
+  # Check which classes have a dessert available
+  # Create prompt that indicates the classes and availability
+  # Ask which classes if class > 1 
+  # Extract the relevant class OR all available classes
+  # Apply do.call to class OR
+  # Map do.call over all classes that have dessert available
 
   # call the corresponding dessert based on the first class
   do.call(paste("dessert", cls[1], sep = "."),
@@ -26,3 +33,4 @@ dessert <- function(data,
                       output_dir = output_dir)
           )
 }
+
