@@ -18,7 +18,8 @@ LazyData: true
 Suggests: 
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
-RoxygenNote: 7.2.1
+RoxygenNote: 7.2.3
 Imports: 
     rmarkdown,
     rstudioapi
+URL: https://hanneoberman.github.io/dessert/

@@ -9,3 +9,6 @@
 ^lm\.docx$
 ^lm\.html$
 ^lm\.pdf$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
