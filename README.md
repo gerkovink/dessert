@@ -8,7 +8,7 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](h
 [![R-CMD-check](https://github.com/gerkovink/dessert/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/gerkovink/dessert/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
-# dessert <a href='https://github.com/gerkovink/dessert'><img src='img/hex_dessert.png' align="right" height="139" /></a>
+# dessert <a href='https://github.com/gerkovink/dessert'><img src='man/figures/hex_dessert.png' align="right" height="139" /></a>
 
 Your favourite analysis recipe should always be followed by your
 favourite dessert!
@@ -44,5 +44,3 @@ Thanks to Ernst Paul for creating the delicious hexagon.
 ------------------------------------------------------------------------
 
 ![](https://www.gerkovink.com/images/pubdom.png)
-
-<a rel="me" href="https://fosstodon.org/@okreg">Mastodon</a>
