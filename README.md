@@ -8,7 +8,7 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](h
 [![R-CMD-check](https://github.com/gerkovink/dessert/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/gerkovink/dessert/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
-# dessert <a href='https://github.com/gerkovink/dessert'><img src='man/figures/hex_dessert.png' align="right" height="139" /></a>
+# `dessert` <a href='https://github.com/gerkovink/dessert'><img src="man/figures/hex_dessert.png" align="right" height="139" /></a>
 
 Your favourite analysis recipe should always be followed by your
 favourite dessert!
@@ -29,7 +29,7 @@ Please adopt the folowing contribution workflow:
 
 ------------------------------------------------------------------------
 
-## Funding
+## Funding <a href='https://www.uu.nl/en' target="_blank"><img src='man/figures/logo_uu.png' align="right" height="139" /></a>
 
 This project has been funded by the 2022 Open Science Fund at Utrecht
 University. The repository with the Fund application form [can be found
