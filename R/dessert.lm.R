@@ -18,12 +18,13 @@
 #' # Don't run as an example in real life
 #' unlink(c("dessert_envir.RData", "lm.Rmd", "lm.html"))
 
-dessert.lm <- function(data,
-                       output_format = NULL,
-                       output_dir = NULL) {
+dessert.lm <- function(
+  object,
+  output_format = NULL,
+  output_dir    = NULL) {
+
   # rmd location
-  rmdloc <-
-    paste(.libPaths(), "dessert", "rmd", "lm.Rmd", sep = "/")
+  rmdloc <- paste(.libPaths(), "dessert", "rmd", "lm.Rmd", sep = "/")
 
   # get the directory of the file calling dessert
   if (!rstudioapi::isAvailable()) {

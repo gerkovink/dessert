@@ -2,22 +2,22 @@
 % Please edit documentation in R/dessert.R
 \name{dessert}
 \alias{dessert}
-\title{Run a dessert recipe on an analysis or data set}
+\title{\pkg{Dessert} recipes}
 \usage{
-dessert(data, output_format = NULL, output_dir = NULL)
+dessert(object, output_format = NULL, output_dir = NULL)
 }
 \arguments{
-\item{data}{The input data set or fit object to call dessert on.}
+\item{object}{The input data set or model which forms the base of the dessert.}
 
-\item{output_format}{The R markdown output format parsed to `rmarkdown`.}
+\item{output_format}{The output format parsed to \code{quarto}.}
 
 \item{output_dir}{The output directory for the rendered output files.}
 }
 \value{
-A reproducible standard publication archive
+A reproducible standard publication archive.
 }
 \description{
-Run a dessert recipe on an analysis or data set
+Run a dessert recipe on a data set or model.
 }
 \examples{
 \dontrun{

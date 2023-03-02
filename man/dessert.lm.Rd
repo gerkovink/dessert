@@ -4,14 +4,14 @@
 \alias{dessert.lm}
 \title{Run a dessert recipe on an analysis or data set}
 \usage{
-dessert.lm(data, output_format = NULL, output_dir = NULL)
+dessert.lm(object, output_format = NULL, output_dir = NULL)
 }
 \arguments{
-\item{data}{The input data set or fit object to call dessert on.}
-
 \item{output_format}{The R markdown output format parsed to `rmarkdown`.}
 
 \item{output_dir}{The output directory for the rendered output files.}
+
+\item{data}{The input data set or fit object to call dessert on.}
 }
 \value{
 A reproducible standard publication archive
