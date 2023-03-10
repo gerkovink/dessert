@@ -3,14 +3,14 @@ dessert.lm <- function(
   object,
   recipe,
   output_dir,
-  output_format = NULL) {
+  output_format = "all") {
 
-
-  cat()
-
-  print(recipe)
-
-  print("dessert.lm")
+  cat(
+    "function: dessert.lm \n",
+    "recipe: ", recipe, "\n",
+    "output_dir: ", output_dir, "\n",
+    "output_format: ", output_format, "\n"
+  )
 
   return(TRUE)
 }

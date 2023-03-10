@@ -20,9 +20,19 @@ dessert <- function(
   object,
   recipe        = NULL,
   output_dir    = NULL,
-  output_format = NULL) {
+  output_format = "all") {
 
-  # obtain the plate to serve the dessert on
+  # check if the user is not cooking up some evil dish
+  if (!(output_format %in% c("all", "html", "pdf", "docx"))) {
+    stop(
+      paste0(
+        "Dessert with output format: \"", output_format, "\" cannot be created.\n",
+        " Valid ouput formats are \"html\", \"pdf\", and \"docx\"."
+      )
+    )
+  }
+
+  # think of a plate to serve the dessert on
   if (is.null(output_dir)) {
     if (!rstudioapi::isAvailable()) {
       output_dir <- getwd()
@@ -36,7 +46,7 @@ dessert <- function(
     }
   }
 
-  # check if the output directory can be used to store results
+  # check if a dessert can be served on this hypothetical plate
   if (file.access(output_dir, 2) != 0) {
     stop(paste0("Dessert cannot be served on: ", output_dir, ". Please provide a valid output directory."))
   }
@@ -50,23 +60,22 @@ dessert <- function(
   }
   cookbook <- read.csv(cookbook_dir)
 
-  # tear out all unwanted recipes from the cookbook
+  # tear out all unwanted recipes from the recipes book
   if (!is.null(recipe)) {
     cookbook <- cookbook[cookbook$recipes == recipe,]
   }
   cookbook <- cookbook[cookbook$class == class(object),]
 
-  ## case a: no recipes
+  # case a: there are no recipes available.
   if (nrow(cookbook) == 0L) {
     stop("No recipe available for the provided dataset or object.")
   }
 
-  # create an output folder
+  # now we are cooking, create an actual plate to serve on
   output_dir <- paste(
     output_dir, paste0("dessert_", format(Sys.time(), "%Y-%m-%d_%H_%M_%S")),
     sep = "/"
   )
-
   if (!file.exists(output_dir)) {
     dir.create(output_dir)
     print(output_dir)
@@ -74,7 +83,7 @@ dessert <- function(
     stop(paste0("Dessert cannot be served on: ", output_dir, ". Please provide a unique output directory."))
   }
 
-  # case b: unique recipe
+  # case b: there is a unique recipe
   if (nrow(cookbook) == 1L) {
     print("case b: unique recipe")
 
@@ -94,6 +103,7 @@ dessert <- function(
   # case c: no unique recipe
   print("case c: no unique recipe")
 
+  # ask the user which option they prefer
   cat("There are multiple recipes available.\n\n")
   cookbook <- rbind(data.frame(class = "all", recipes = "all"), cookbook)
   rownames(cookbook) <- 1:nrow(cookbook)
@@ -110,8 +120,6 @@ dessert <- function(
   } else {
     cookbook <- cookbook[input,]
   }
-
-  print(cookbook)
 
   for (index in 1:nrow(cookbook)) {
     do.call(
