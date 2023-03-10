@@ -5,6 +5,9 @@ dessert.lm <- function(
   output_dir,
   output_format = NULL) {
 
+
+  cat()
+
   print(recipe)
 
   print("dessert.lm")

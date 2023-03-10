@@ -56,7 +56,7 @@ dessert <- function(
   }
   cookbook <- cookbook[cookbook$class == class(object),]
 
-  # case a: no recipes
+  ## case a: no recipes
   if (nrow(cookbook) == 0L) {
     stop("No recipe available for the provided dataset or object.")
   }
@@ -105,22 +105,26 @@ dessert <- function(
   if (!(is.integer(input) & input %in% 1:nrow(cookbook))) {
     stop("That option is not in our recipe book.")
   }
-  if (input != 1L) {
+  if (input == 1L) {
     cookbook <- cookbook[-1,]
   } else {
     cookbook <- cookbook[input,]
   }
 
-  purrr::walk(
-    .x = cls,
-    .f = ~ do.call(
-      cls,
+  print(cookbook)
+
+  for (index in 1:nrow(cookbook)) {
+    do.call(
+      paste("dessert", cookbook[index,]$class, sep = "."),
       args = list(
         object        = object,
+        recipe        = cookbook[index,]$recipe,
         output_format = output_format,
         output_dir    = output_dir
       )
     )
-  )
+  }
+
+  return(TRUE)
 }
 
