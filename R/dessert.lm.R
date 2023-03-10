@@ -2,8 +2,8 @@
 dessert.lm <- function(
   object,
   recipe,
-  output_format = NULL,
-  output_dir    = NULL) {
+  output_dir,
+  output_format = NULL) {
 
   print(recipe)
 

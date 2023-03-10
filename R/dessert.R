@@ -19,10 +19,10 @@
 dessert <- function(
   object,
   recipe        = NULL,
-  output_format = NULL,
-  output_dir    = NULL) {
+  output_dir    = NULL,
+  output_format = NULL) {
 
-  # obtain the plate to serve the dessert
+  # obtain the plate to serve the dessert on
   if (is.null(output_dir)) {
     if (!rstudioapi::isAvailable()) {
       output_dir <- getwd()
@@ -48,7 +48,7 @@ dessert <- function(
   }
   cookbook <- read.csv(cookbook_dir)
 
-  # tear out all unwanted recipes
+  # tear out all unwanted recipes from the cookbook
   if (!is.null(recipe)) {
     cookbook <- cookbook[cookbook$recipes == recipe,]
   }
@@ -59,7 +59,18 @@ dessert <- function(
     stop("No recipe available for the provided dataset or object.")
   }
 
-  ## create a dessert output directory
+  # create an output folder
+  output_dir <- paste(
+    output_dir, format(Sys.time(), "%Y-%m-%d_%H_%M_%S"),
+    sep = "_"
+  )
+
+  if (!dir.exist(output_dir)) {
+    #dir.create(output_dir)
+    print(output_dir)
+  } else {
+    stop(paste0("Dessert cannot be served on: ", output_dir, ". Please provide a valid output directory."))
+  }
 
   # case b: unique recipe
   if (nrow(cookbook) == 1L) {
