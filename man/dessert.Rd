@@ -4,25 +4,48 @@
 \alias{dessert}
 \title{\pkg{Dessert} recipes}
 \usage{
-dessert(object, output_format = NULL, output_dir = NULL)
+dessert(object, recipe = NULL, output_dir = NULL, output_format = "all")
 }
 \arguments{
 \item{object}{The input data set or model which forms the base of the dessert.}
 
-\item{output_format}{The output format parsed to \code{quarto} document.}
+\item{recipe}{A \pkg{Dessert} recipe associated with the input data set or model. See recipe book in details. By default dessert will match all available desserts.}
 
-\item{output_dir}{The output directory for the rendered output files.}
+\item{output_dir}{The output directory for the output files.}
+
+\item{output_format}{The output format parsed to \code{quarto} document. Valid ouput formats are "html", "pdf", and "docx".}
 }
 \value{
-A reproducible standard publication archive.
+A reproducible standard publication archive with the following folder structure:
+\preformatted{
+|- dessert_2023-03-10_12_07_08/
+  | - class_recipe_2023-03-10_12_07_08/
+    | - data.Rdata
+    | - class_recipe.qmd
+    | - class_recipe.html
+    | - class_recipe.pdf
+    | - class_recipe.docx
+    | - class_recipe/
+      | - class_recipe_figure_1
+      | - class_recipe_figure_2
+      | - ...
+  | - class_recipe_2023-03-10_12_07_18/
+    | - ...
+}
 }
 \description{
-Run a dessert recipe on a data set or model to create a reproducible standard
-publication archive.
+Run a \pkg{Dessert} recipe on a data set or model to create a reproducible
+standard publication archive.
+}
+\details{
+The \pkg{Dessert} recipe book:\tabular{lll}{
+   \strong{class} \tab \strong{recipe(s)} \tab \strong{details} \cr
+   \code{lm} \tab \code{"regression"}, \code{"ancova"} \tab \code{\link[=dessert.lm]{dessert.lm()}} \cr
+}
 }
 \examples{
 \dontrun{
 fit <- lm(dist ~ speed, data = cars)
-dessert(fit)
+dessert(fit, recipe = "regression")
 }
 }

@@ -4,29 +4,8 @@
 \alias{dessert.lm}
 \title{Run a dessert recipe on an analysis or data set}
 \usage{
-dessert.lm(object, output_format = NULL, output_dir = NULL)
-}
-\arguments{
-\item{output_format}{The R markdown output format parsed to `rmarkdown`.}
-
-\item{output_dir}{The output directory for the rendered output files.}
-
-\item{data}{The input data set or fit object to call dessert on.}
-}
-\value{
-A reproducible standard publication archive
+dessert.lm(object, recipe, output_dir, output_format = "all")
 }
 \description{
 Run a dessert recipe on an analysis or data set
-}
-\examples{
-
-# Call a lm dessert on a fitted linear model
-
-fit <- lm(dist ~ speed, data = cars)
-dessert.lm(fit, output_format = "html_document")
-
-# Remove the generated files in R-CMD-Check
-# Don't run as an example in real life
-unlink(c("dessert_envir.RData", "lm.Rmd", "lm.html"))
 }

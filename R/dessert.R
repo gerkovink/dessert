@@ -1,20 +1,45 @@
 #' \pkg{Dessert} recipes
 #'
 #' @description
-#' Run a dessert recipe on a data set or model to create a reproducible standard
-#' publication archive.
+#' Run a \pkg{Dessert} recipe on a data set or model to create a reproducible
+#' standard publication archive.
 #'
 #' @param object The input data set or model which forms the base of the dessert.
-#' @param output_format The output format parsed to \code{quarto} document.
-#' @param output_dir The output directory for the rendered output files.
+#' @param recipe A \pkg{Dessert} recipe associated with the input data set or model. See recipe book in details. By default dessert will match all available desserts.
+#' @param output_format The output format parsed to \code{quarto} document. Valid ouput formats are "html", "pdf", and "docx".
+#' @param output_dir The output directory for the output files.
 #'
-#' @return A reproducible standard publication archive.
+#' @details The \pkg{Dessert} recipe book:
+#'
+#' | **class**    | **recipe(s)**              | **details**              |
+#' | ------------ |----------------------------|--------------------------|
+#' | `lm`         | `"regression"`, `"ancova"` | [dessert.lm()]           |
+#'
+#' @md
+#'
+#' @return A reproducible standard publication archive with the following folder structure:
+#' \preformatted{
+#' `r paste0("|- dessert_", format(Sys.time(), "%Y-%m-%d_%H_%M_%S"), "/")`
+#' `r paste0("  | - class_recipe_", format(Sys.time(), "%Y-%m-%d_%H_%M_%S"), "/")`
+#' `r paste0("    | - data.Rdata")`
+#' `r paste0("    | - class_recipe.qmd")`
+#' `r paste0("    | - class_recipe.html")`
+#' `r paste0("    | - class_recipe.pdf")`
+#' `r paste0("    | - class_recipe.docx")`
+#' `r paste0("    | - class_recipe/")`
+#' `r paste0("      | - class_recipe_figure_1")`
+#' `r paste0("      | - class_recipe_figure_2")`
+#' `r paste0("      | - ...")`
+#' `r paste0("  | - class_recipe_", format(Sys.time() + 10, "%Y-%m-%d_%H_%M_%S"), "/")`
+#' `r paste0("    | - ...")`
+#' }
+#'
 #' @export
 #'
 #' @examples
 #' \dontrun{
 #' fit <- lm(dist ~ speed, data = cars)
-#' dessert(fit)
+#' dessert(fit, recipe = "regression")
 #' }
 dessert <- function(
   object,
