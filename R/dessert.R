@@ -30,6 +30,8 @@ dessert <- function(
       output_dir <- rstudioapi::getSourceEditorContext()$path
       if (is.null(output_dir)) {
         output_dir <- getwd()
+      } else {
+        output_dir <- dirname(output_dir)
       }
     }
   }
@@ -61,11 +63,11 @@ dessert <- function(
 
   # create an output folder
   output_dir <- paste(
-    output_dir, format(Sys.time(), "%Y-%m-%d_%H_%M_%S"),
-    sep = "_"
+    output_dir, paste0("dessert_", format(Sys.time(), "%Y-%m-%d_%H_%M_%S")),
+    sep = "/"
   )
 
-  if (!dir.exist(output_dir)) {
+  if (!file.exists(output_dir)) {
     #dir.create(output_dir)
     print(output_dir)
   } else {
