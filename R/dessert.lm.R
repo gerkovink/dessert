@@ -12,7 +12,14 @@ dessert.lm <- function(
     "output_format: ", output_format, "\n"
   )
 
+  # create new directory for the class_recipe
 
+  # copy and paste qmd file
+  # copy and paste auxilarry information
+
+  # render the quarto document
+
+  # check if everything rendered fine
 
   return(TRUE)
 }

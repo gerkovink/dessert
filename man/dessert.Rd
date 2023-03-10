@@ -13,13 +13,13 @@ dessert(object, recipe = NULL, output_dir = NULL, output_format = "all")
 
 \item{output_dir}{The output directory for the output files.}
 
-\item{output_format}{The output format parsed to \code{quarto} document. Valid ouput formats are "html", "pdf", and "docx".}
+\item{output_format}{The output format parsed to the \code{quarto} document. Valid ouput formats are \code{"html"}, \code{"pdf"}, and \code{"docx"}.}
 }
 \value{
 A reproducible standard publication archive with the following folder structure:
 \preformatted{
-|- dessert_2023-03-10_12_07_08/
-  | - class_recipe_2023-03-10_12_07_08/
+|- dessert_2023-03-10_12_11_37/
+  | - class_recipe_2023-03-10_12_11_37/
     | - data.Rdata
     | - class_recipe.qmd
     | - class_recipe.html
@@ -29,7 +29,7 @@ A reproducible standard publication archive with the following folder structure:
       | - class_recipe_figure_1
       | - class_recipe_figure_2
       | - ...
-  | - class_recipe_2023-03-10_12_07_18/
+  | - class_recipe_2023-03-10_12_11_47/
     | - ...
 }
 }

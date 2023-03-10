@@ -6,7 +6,7 @@
 #'
 #' @param object The input data set or model which forms the base of the dessert.
 #' @param recipe A \pkg{Dessert} recipe associated with the input data set or model. See recipe book in details. By default dessert will match all available desserts.
-#' @param output_format The output format parsed to \code{quarto} document. Valid ouput formats are "html", "pdf", and "docx".
+#' @param output_format The output format parsed to the \code{quarto} document. Valid ouput formats are `"html"`, `"pdf"`, and `"docx"`.
 #' @param output_dir The output directory for the output files.
 #'
 #' @details The \pkg{Dessert} recipe book:
