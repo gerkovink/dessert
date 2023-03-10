@@ -68,10 +68,10 @@ dessert <- function(
   )
 
   if (!file.exists(output_dir)) {
-    #dir.create(output_dir)
+    dir.create(output_dir)
     print(output_dir)
   } else {
-    stop(paste0("Dessert cannot be served on: ", output_dir, ". Please provide a valid output directory."))
+    stop(paste0("Dessert cannot be served on: ", output_dir, ". Please provide a unique output directory."))
   }
 
   # case b: unique recipe
@@ -93,35 +93,34 @@ dessert <- function(
 
   # case c: no unique recipe
   print("case c: no unique recipe")
-  # 1 locatie
-  # images
 
-  #cat(
-  #  "Recipes for the provided dataset or object:", "", "0) all",
-  #  base::paste0(seq_along(cls), ") ", cls), "",
-  #  sep = "\n"
-  #)
+  cat("There are multiple recipes available.\n\n")
+  cookbook <- rbind(data.frame(class = "all", recipes = "all"), cookbook)
+  rownames(cookbook) <- 1:nrow(cookbook)
+  print(cookbook)
+  cat("\nWhich one(s) should we prepare?\n")
 
-  #prompt <- sprintf(
-  #  "Select (%s): ",
-  #  paste(c("0", seq_along(cls)), collapse = "/")
-  #)
-  #input <- as.integer(readline(prompt = prompt))
+  prompt <- paste0("Select (", paste(rownames(cookbook), collapse = "/"), "): ")
+  input <- as.integer(readline(prompt = prompt))
+  if (!(is.integer(input) & input %in% 1:nrow(cookbook))) {
+    stop("That option is not in our recipe book.")
+  }
+  if (input != 1L) {
+    cookbook <- cookbook[-1,]
+  } else {
+    cookbook <- cookbook[input,]
+  }
 
-  #if (input != 0L) cls <- cls[input]
-
-  # dessert_lm
-
-  #purrr::walk(
-  #  .x = cls,
-  #  .f = ~ do.call(
-  #    cls,
-  #    args = list(
-  #      object        = object,
-  #      output_format = output_format,
-  #      output_dir    = output_dir
-  #    )
-  #  )
-  #)
+  purrr::walk(
+    .x = cls,
+    .f = ~ do.call(
+      cls,
+      args = list(
+        object        = object,
+        output_format = output_format,
+        output_dir    = output_dir
+      )
+    )
+  )
 }
 
