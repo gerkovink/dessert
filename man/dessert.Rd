@@ -18,8 +18,8 @@ dessert(object, recipe = NULL, output_dir = NULL, output_format = "all")
 \value{
 A reproducible standard publication archive with the following folder structure:
 \preformatted{
-|- dessert_2023-03-10_12_11_37/
-  | - class_recipe_2023-03-10_12_11_37/
+| - dessert_2023-03-10_12_41_05/
+  | - class_recipe_2023-03-10_12_41_05/
     | - data.Rdata
     | - class_recipe.qmd
     | - class_recipe.html
@@ -29,7 +29,7 @@ A reproducible standard publication archive with the following folder structure:
       | - class_recipe_figure_1
       | - class_recipe_figure_2
       | - ...
-  | - class_recipe_2023-03-10_12_11_47/
+  | - class_recipe_2023-03-10_12_41_15/
     | - ...
 }
 }

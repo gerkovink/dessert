@@ -19,7 +19,7 @@
 #'
 #' @return A reproducible standard publication archive with the following folder structure:
 #' \preformatted{
-#' `r paste0("|- dessert_", format(Sys.time(), "%Y-%m-%d_%H_%M_%S"), "/")`
+#' `r paste0("| - dessert_", format(Sys.time(), "%Y-%m-%d_%H_%M_%S"), "/")`
 #' `r paste0("  | - class_recipe_", format(Sys.time(), "%Y-%m-%d_%H_%M_%S"), "/")`
 #' `r paste0("    | - data.Rdata")`
 #' `r paste0("    | - class_recipe.qmd")`
