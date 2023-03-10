@@ -9,7 +9,7 @@ dessert(object, output_format = NULL, output_dir = NULL)
 \arguments{
 \item{object}{The input data set or model which forms the base of the dessert.}
 
-\item{output_format}{The output format parsed to \code{quarto}.}
+\item{output_format}{The output format parsed to \code{quarto} document.}
 
 \item{output_dir}{The output directory for the rendered output files.}
 }
@@ -17,7 +17,8 @@ dessert(object, output_format = NULL, output_dir = NULL)
 A reproducible standard publication archive.
 }
 \description{
-Run a dessert recipe on a data set or model.
+Run a dessert recipe on a data set or model to create a reproducible standard
+publication archive.
 }
 \examples{
 \dontrun{

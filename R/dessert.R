@@ -1,10 +1,11 @@
 #' \pkg{Dessert} recipes
 #'
 #' @description
-#' Run a dessert recipe on a data set or model.
+#' Run a dessert recipe on a data set or model to create a reproducible standard
+#' publication archive.
 #'
 #' @param object The input data set or model which forms the base of the dessert.
-#' @param output_format The output format parsed to \code{quarto}.
+#' @param output_format The output format parsed to \code{quarto} document.
 #' @param output_dir The output directory for the rendered output files.
 #'
 #' @return A reproducible standard publication archive.
@@ -17,61 +18,97 @@
 #' }
 dessert <- function(
   object,
+  recipe        = NULL,
   output_format = NULL,
   output_dir    = NULL) {
 
-  # check available recipes for object
-  cls_dessert <- base::ls("package:dessert", pattern = "^dessert.")
-  cls_dessert <- c("dessert.tbl", "dessert.data.frame", "dessert.lm")
-  cls <- base::class(object)
-  cls <- base::paste("dessert", cls, sep = ".")
-  cls <- base::intersect(cls, cls_dessert)
+  # obtain the plate to serve the dessert
+  if (is.null(output_dir)) {
+    if (!rstudioapi::isAvailable()) {
+      output_dir <- getwd()
+    } else {
+      output_dir <- rstudioapi::getSourceEditorContext()$path
+      if (is.null(output_dir)) {
+        output_dir <- getwd()
+      }
+    }
+  }
+
+  # check if the output directory can be used to store results
+  if (file.access(output_dir, 2) != 0) {
+    stop(paste0("Dessert cannot be served on: ", output_dir, ". Please provide a valid output directory."))
+  }
+
+  # load in the recipes book
+  cookbook_dir <- paste(
+    system.file(package = "dessert"), "cookbook", "recipes.csv", sep = "/"
+  )
+  if (!file.exists(cookbook_dir)) {
+    stop("Ohew no, the Dessert recipe book is lost! Ensure Dessert is installed.")
+  }
+  cookbook <- read.csv(cookbook_dir)
+
+  # tear out all unwanted recipes
+  if (!is.null(recipe)) {
+    cookbook <- cookbook[cookbook$recipes == recipe,]
+  }
+  cookbook <- cookbook[cookbook$class == class(object),]
 
   # case a: no recipes
-  if (length(cls) == 0) stop("No recipe available for the provided dataset or object.")
+  if (nrow(cookbook) == 0L) {
+    stop("No recipe available for the provided dataset or object.")
+  }
+
+  ## create a dessert output directory
 
   # case b: unique recipe
-  if (length(cls) == 1) {
+  if (nrow(cookbook) == 1L) {
+    print("case b: unique recipe")
+
     do.call(
-      cls,
+      paste("dessert", cookbook$class, sep = "."),
       args = list(
         object        = object,
+        recipe        = cookbook$recipe,
         output_format = output_format,
         output_dir    = output_dir
       )
     )
+
     return(TRUE)
   }
 
-  # case c: multiple recipe
-  cat(
-    "Recipes for the provided dataset or object:",
-    "",
-    "0) all",
-    base::paste0(seq_along(cls), ") ", cls),
-    "",
-    sep = "\n"
-  )
+  # case c: no unique recipe
+  print("case c: no unique recipe")
+  # 1 locatie
+  # images
 
-  prompt <- sprintf(
-    "Select (%s): ",
-    paste(c("0", seq_along(cls)), collapse = "/")
-  )
-  input <- as.integer(readline(prompt = prompt))
+  #cat(
+  #  "Recipes for the provided dataset or object:", "", "0) all",
+  #  base::paste0(seq_along(cls), ") ", cls), "",
+  #  sep = "\n"
+  #)
 
-  if (input != 0L) cls <- cls[input]
+  #prompt <- sprintf(
+  #  "Select (%s): ",
+  #  paste(c("0", seq_along(cls)), collapse = "/")
+  #)
+  #input <- as.integer(readline(prompt = prompt))
 
-  purrr::walk(
-    .x = cls,
-    .f = ~
-    do.call(
-      cls,
-      args = list(
-        object        = object,
-        output_format = output_format,
-        output_dir    = output_dir
-      )
-    )
-  )
+  #if (input != 0L) cls <- cls[input]
+
+  # dessert_lm
+
+  #purrr::walk(
+  #  .x = cls,
+  #  .f = ~ do.call(
+  #    cls,
+  #    args = list(
+  #      object        = object,
+  #      output_format = output_format,
+  #      output_dir    = output_dir
+  #    )
+  #  )
+  #)
 }
 
