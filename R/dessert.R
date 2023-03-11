@@ -53,8 +53,7 @@ dessert <- function(
   if (!(output_format %in% c("all", "html", "pdf", "docx"))) {
     stop(
       paste0(
-        "Dessert with output format: \"", output_format, "\" cannot be created.\n",
-        " Valid ouput formats are \"html\", \"pdf\", and \"docx\"."
+        "Dessert with output format: \"", output_format, "\" cannot be served. Valid ouput formats are \"html\", \"pdf\", and \"docx\"."
       )
     )
   }
@@ -91,6 +90,9 @@ dessert <- function(
   cookbook <- cookbook[, -4]
 
   # tear out all unwanted recipes from the recipes book
+  if (!is.null(from)) {
+    cookbook <- cookbook[cookbook$from == from, ]
+  }
   if (!is.null(recipe)) {
     cookbook <- cookbook[cookbook$recipes == recipe,]
   }
@@ -121,8 +123,8 @@ dessert <- function(
       paste("dessert", cookbook$class, sep = "."),
       args = list(
         object        = object,
+        from          = cookbook$from,
         recipe        = cookbook$recipe,
-        package       = cookbook$from,
         output_format = output_format,
         output_dir    = output_dir
       )
@@ -160,8 +162,8 @@ dessert <- function(
       paste("dessert", cookbook[index,]$class, sep = "."),
       args = list(
         object        = object,
+        from          = cookbook[index,]$from,
         recipe        = cookbook[index,]$recipe,
-        package       = cookbook[index,]$from,
         output_format = output_format,
         output_dir    = output_dir
       )

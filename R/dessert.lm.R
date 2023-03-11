@@ -1,15 +1,15 @@
 #' Run a dessert recipe on an analysis or data set
 dessert.lm <- function(
   object,
+  from,
   recipe,
-  package,
   output_dir,
   output_format = "all") {
 
   cat(
     "function: dessert.lm \n",
+    "package: ", from, "\n",
     "recipe: ", recipe, "\n",
-    "package: ", package, "\n",
     "output_dir: ", output_dir, "\n",
     "output_format: ", output_format, "\n"
   )
