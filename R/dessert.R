@@ -5,15 +5,16 @@
 #' standard publication archive.
 #'
 #' @param object The input data set or model which forms the base of the dessert.
-#' @param recipe A \pkg{Dessert} recipe associated with the input data set or model. See recipe book in details. By default dessert will match all available desserts.
-#' @param output_format The output format parsed to the \code{quarto} document. Valid ouput formats are `"html"`, `"pdf"`, and `"docx"`.
-#' @param output_dir The output directory for the output files.
+#' @param from A string specifying the package from which the input data set or model originates.
+#' @param recipe A string specifying a \pkg{Dessert} recipe associated with the input data set or model. See the recipe book for available recipes. The default behavior is to match all desserts if no recipe is specified.
+#' @param output_format A string specifying the output format of the \code{quarto} document. Available ouput formats are `"html"`, `"pdf"`, and `"docx"`. By default, all output formats are provided.
+#' @param output_dir A string specifying the output directory for the output files.
 #'
 #' @details The \pkg{Dessert} recipe book:
 #'
-#' | **class**    | **recipe(s)**              | **details**              |
-#' | ------------ |----------------------------|--------------------------|
-#' | `lm`         | `"regression"`, `"ancova"` | [dessert.lm()]           |
+#' | **class**   | **from**   | **recipe(s)**                | **details**      |
+#' |-------------|------------|------------------------------|------------------|
+#' | `lm`        | `stats`    | `"regression"`, `"ancova"`   | [dessert.lm()]   |
 #'
 #' @md
 #'
@@ -43,6 +44,7 @@
 #' }
 dessert <- function(
   object,
+  from          = NULL,
   recipe        = NULL,
   output_dir    = NULL,
   output_format = "all") {
@@ -85,6 +87,9 @@ dessert <- function(
   }
   cookbook <- read.csv(cookbook_dir)
 
+  # future code if there is a lot of overlap between classes some can be hidden
+  cookbook <- cookbook[, -4]
+
   # tear out all unwanted recipes from the recipes book
   if (!is.null(recipe)) {
     cookbook <- cookbook[cookbook$recipes == recipe,]
@@ -117,6 +122,7 @@ dessert <- function(
       args = list(
         object        = object,
         recipe        = cookbook$recipe,
+        package       = cookbook$from,
         output_format = output_format,
         output_dir    = output_dir
       )
@@ -130,7 +136,10 @@ dessert <- function(
 
   # ask the user which option they prefer
   cat("There are multiple recipes available.\n\n")
-  cookbook <- rbind(data.frame(class = "all", recipes = "all"), cookbook)
+  cookbook <- rbind(
+    data.frame(class = "all", from = "all", recipe = "all"),
+    cookbook
+  )
   rownames(cookbook) <- 1:nrow(cookbook)
   print(cookbook)
   cat("\nWhich one(s) should we prepare?\n")
@@ -152,6 +161,7 @@ dessert <- function(
       args = list(
         object        = object,
         recipe        = cookbook[index,]$recipe,
+        package       = cookbook[index,]$from,
         output_format = output_format,
         output_dir    = output_dir
       )

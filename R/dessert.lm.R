@@ -2,12 +2,14 @@
 dessert.lm <- function(
   object,
   recipe,
+  package,
   output_dir,
   output_format = "all") {
 
   cat(
     "function: dessert.lm \n",
     "recipe: ", recipe, "\n",
+    "package: ", package, "\n",
     "output_dir: ", output_dir, "\n",
     "output_format: ", output_format, "\n"
   )

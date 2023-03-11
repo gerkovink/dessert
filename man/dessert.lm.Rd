@@ -4,7 +4,7 @@
 \alias{dessert.lm}
 \title{Run a dessert recipe on an analysis or data set}
 \usage{
-dessert.lm(object, recipe, output_dir, output_format = "all")
+dessert.lm(object, recipe, package, output_dir, output_format = "all")
 }
 \description{
 Run a dessert recipe on an analysis or data set
