@@ -1,4 +1,10 @@
-#' Run a dessert recipe on an analysis or data set
+#' \pkg{Dessert} recipes for class \code{lm}
+#'
+#' @description
+#' Description of
+#'
+#' @md
+#'
 dessert.lm <- function(
   object,
   from,

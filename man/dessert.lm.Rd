@@ -2,10 +2,11 @@
 % Please edit documentation in R/dessert.lm.R
 \name{dessert.lm}
 \alias{dessert.lm}
-\title{Run a dessert recipe on an analysis or data set}
+\title{\pkg{Dessert} recipes for class \code{lm}}
 \usage{
-dessert.lm(object, recipe, package, output_dir, output_format = "all")
+dessert.lm(object, from, recipe, output_dir, output_format = "all")
 }
 \description{
-Run a dessert recipe on an analysis or data set
+Run a \pkg{Dessert} recipe on a data set or model to create a reproducible
+standard publication archive.
 }
