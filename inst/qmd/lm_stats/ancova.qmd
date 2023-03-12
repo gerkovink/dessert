@@ -21,4 +21,4 @@ editor: source
 head(params$data)
 ```
 
-![](figures/example.png)
+![](lm_stats/lm_stats_regression_figure_1.png)

@@ -7,6 +7,11 @@
 dessert.lm(object, from, recipe, output_dir, output_format = "all")
 }
 \description{
-Run a \pkg{Dessert} recipe on a data set or model to create a reproducible
-standard publication archive.
+\pkg{Dessert} recipe(s) for objects with class \code{lm} from the \code{stats} package.
+}
+\details{
+\itemize{
+\item ancova
+\item regression
+}
 }

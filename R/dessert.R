@@ -94,7 +94,7 @@ dessert <- function(
     cookbook <- cookbook[cookbook$from == from, ]
   }
   if (!is.null(recipe)) {
-    cookbook <- cookbook[cookbook$recipes == recipe,]
+    cookbook <- cookbook[cookbook$recipe == recipe,]
   }
   cookbook <- cookbook[cookbook$class == class(object),]
 
