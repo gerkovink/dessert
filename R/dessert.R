@@ -6,7 +6,7 @@
 #'
 #' @param object The input data set or model which forms the base of the dessert.
 #' @param from A string specifying the package from which the input data set or model originates.
-#' @param recipe A string specifying a \pkg{Dessert} recipe associated with the input data set or model. See the recipe book for available recipes. The default behavior is to match all desserts if no recipe is specified.
+#' @param recipe A string specifying a \pkg{Dessert} recipe associated with the input data set or model. See the recipe book in details for available recipes. The default behavior is to match all desserts if no recipe is specified.
 #' @param output_format A string specifying the output format of the \code{quarto} document. Available ouput formats are `"html"`, `"pdf"`, and `"docx"`. By default, all output formats are provided.
 #' @param output_dir A string specifying the output directory for the output files.
 #'
@@ -21,18 +21,17 @@
 #' @return A reproducible standard publication archive with the following folder structure:
 #' \preformatted{
 #' `r paste0("| - dessert_", format(Sys.time(), "%Y-%m-%d_%H_%M_%S"), "/")`
-#' `r paste0("  | - class_recipe_", format(Sys.time(), "%Y-%m-%d_%H_%M_%S"), "/")`
-#' `r paste0("    | - data.Rdata")`
-#' `r paste0("    | - class_recipe.qmd")`
-#' `r paste0("    | - class_recipe.html")`
-#' `r paste0("    | - class_recipe.pdf")`
-#' `r paste0("    | - class_recipe.docx")`
-#' `r paste0("    | - class_recipe/")`
-#' `r paste0("      | - class_recipe_figure_1")`
-#' `r paste0("      | - class_recipe_figure_2")`
-#' `r paste0("      | - ...")`
-#' `r paste0("  | - class_recipe_", format(Sys.time() + 10, "%Y-%m-%d_%H_%M_%S"), "/")`
-#' `r paste0("    | - ...")`
+#'   | - class_package/
+#'     | - recipe.RData
+#'     | - recipe.qmd
+#'     | - recipe.html
+#'     | - recipe.pdf
+#'     | - recipe.docx
+#'     | - recipe/
+#'       | - figure_1.png
+#'       | - figure_2.png
+#'       | - ...
+#'   | - ...
 #' }
 #'
 #' @export
@@ -49,6 +48,8 @@ dessert <- function(
   output_dir    = NULL,
   output_format = "all") {
 
+  my_test_function(1)
+  my_test_function_2(2)
   # check if the user is not cooking up some evil dish
   if (!(output_format %in% c("all", "html", "pdf", "docx"))) {
     stop(
@@ -79,7 +80,7 @@ dessert <- function(
 
   # load in the recipes book
   cookbook_dir <- paste(
-    system.file(package = "dessert"), "cookbook", "recipes.csv", sep = "/"
+    system.file(package = "dessert"), "cookbook", "recipes.csv", sep = '/'
   )
   if (!file.exists(cookbook_dir)) {
     stop("Ohew no, the Dessert recipe book is lost! Ensure Dessert is installed.")
@@ -106,7 +107,7 @@ dessert <- function(
   # now we are cooking, create an actual plate to serve on
   output_dir <- paste(
     output_dir, paste0("dessert_", format(Sys.time(), "%Y-%m-%d_%H_%M_%S")),
-    sep = "/"
+    sep = '/'
   )
   if (!file.exists(output_dir)) {
     dir.create(output_dir)

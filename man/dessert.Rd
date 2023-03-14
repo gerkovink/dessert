@@ -17,7 +17,7 @@ dessert(
 
 \item{from}{A string specifying the package from which the input data set or model originates.}
 
-\item{recipe}{A string specifying a \pkg{Dessert} recipe associated with the input data set or model. See the recipe book for available recipes. The default behavior is to match all desserts if no recipe is specified.}
+\item{recipe}{A string specifying a \pkg{Dessert} recipe associated with the input data set or model. See the recipe book in details for available recipes. The default behavior is to match all desserts if no recipe is specified.}
 
 \item{output_dir}{A string specifying the output directory for the output files.}
 
@@ -26,19 +26,18 @@ dessert(
 \value{
 A reproducible standard publication archive with the following folder structure:
 \preformatted{
-| - dessert_2023-03-11_20_32_07/
-  | - class_recipe_2023-03-11_20_32_07/
-    | - data.Rdata
-    | - class_recipe.qmd
-    | - class_recipe.html
-    | - class_recipe.pdf
-    | - class_recipe.docx
-    | - class_recipe/
-      | - class_recipe_figure_1
-      | - class_recipe_figure_2
+| - dessert_2023-03-14_11_58_17/
+  | - class_package/
+    | - recipe.RData
+    | - recipe.qmd
+    | - recipe.html
+    | - recipe.pdf
+    | - recipe.docx
+    | - recipe/
+      | - figure_1.png
+      | - figure_2.png
       | - ...
-  | - class_recipe_2023-03-11_20_32_17/
-    | - ...
+  | - ...
 }
 }
 \description{

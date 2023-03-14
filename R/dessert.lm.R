@@ -52,18 +52,40 @@ dessert.lm <- function(
     copy.mode = FALSE
   )
 
-  dir.create(paste(output_dir, recipe, sep = '/'))
 
-  # copy all image files
+  img_dir <- list.files(
+    path = paste(
+      system.file(package = "dessert"), "qmd",
+      paste(cls, from, sep = '_'),
+      recipe,
+      sep = '/'
+    ),
+    full.names = TRUE
+  )
+
+  if (length(img_dir) != 0) {
+    dir.create(paste(output_dir, recipe, sep = '/'))
+
+    file.copy(
+      from      = img_dir,
+      to        = paste(output_dir, recipe, sep = '/'),
+      overwrite = FALSE,
+      recursive = TRUE,
+      copy.mode = FALSE
+    )
+  }
 
   # store the object as a rdata
   save(
     object,
-    file = paste(output_dir, paste(recipe, ".RData", sep = '.'), sep = '/')
+    file = paste(output_dir, paste(recipe, "rdata", sep = '.'), sep = '/')
   )
 
-  # render the quarto document
-  # check if everything rendered fine
+  # render the quarto files
+  quarto::quarto_render(
+    input = paste(output_dir, paste(recipe, "qmd", sep = '.'), sep = '/'),
+    output_format = output_format
+  )
 
   return(TRUE)
 }
