@@ -9,7 +9,8 @@ dessert(
   from = NULL,
   recipe = NULL,
   output_dir = NULL,
-  output_format = "all"
+  output_format = "all",
+  quiet = TRUE
 )
 }
 \arguments{
@@ -26,7 +27,7 @@ dessert(
 \value{
 A reproducible standard publication archive with the following folder structure:
 \preformatted{
-| - dessert_2023-03-14_11_58_17/
+| - dessert_2023-03-14_22_56_21/
   | - class_package/
     | - recipe.RData
     | - recipe.qmd
@@ -41,8 +42,8 @@ A reproducible standard publication archive with the following folder structure:
 }
 }
 \description{
-Run a \pkg{Dessert} recipe on a data set or model to create a reproducible
-standard publication archive.
+Run a \pkg{Dessert} recipe on a data set or model to create a
+reproducible standard publication archive.
 }
 \details{
 The \pkg{Dessert} recipe book:\tabular{llll}{

@@ -1,13 +1,13 @@
 #' \pkg{Dessert} recipes
 #'
-#' @description
-#' Run a \pkg{Dessert} recipe on a data set or model to create a reproducible
-#' standard publication archive.
+#' @description Run a \pkg{Dessert} recipe on a data set or model to create a
+#' reproducible standard publication archive.
 #'
 #' @param object The input data set or model which forms the base of the dessert.
 #' @param from A string specifying the package from which the input data set or model originates.
 #' @param recipe A string specifying a \pkg{Dessert} recipe associated with the input data set or model. See the recipe book in details for available recipes. The default behavior is to match all desserts if no recipe is specified.
 #' @param output_format A string specifying the output format of the \code{quarto} document. Available ouput formats are `"html"`, `"pdf"`, and `"docx"`. By default, all output formats are provided.
+#' @param output_dir A string specifying the output directory for the output files.
 #' @param output_dir A string specifying the output directory for the output files.
 #'
 #' @details The \pkg{Dessert} recipe book:
@@ -46,10 +46,9 @@ dessert <- function(
   from          = NULL,
   recipe        = NULL,
   output_dir    = NULL,
-  output_format = "all") {
+  output_format = "all",
+  quiet         = TRUE) {
 
-  my_test_function(1)
-  my_test_function_2(2)
   # check if the user is not cooking up some evil dish
   if (!(output_format %in% c("all", "html", "pdf", "docx"))) {
     stop(
@@ -127,7 +126,8 @@ dessert <- function(
         from          = cookbook$from,
         recipe        = cookbook$recipe,
         output_format = output_format,
-        output_dir    = output_dir
+        output_dir    = output_dir,
+        quiet         = quiet
       )
     )
 
@@ -150,7 +150,7 @@ dessert <- function(
   prompt <- paste0("Select (", paste(rownames(cookbook), collapse = "/"), "): ")
   input <- as.integer(readline(prompt = prompt))
   if (!(is.integer(input) & input %in% 1:nrow(cookbook))) {
-    stop("That option is not in our recipe book.")
+    stop("That option is not in the Dessert recipe book.")
   }
   if (input == 1L) {
     cookbook <- cookbook[-1,]
@@ -166,11 +166,12 @@ dessert <- function(
         from          = cookbook[index,]$from,
         recipe        = cookbook[index,]$recipe,
         output_format = output_format,
-        output_dir    = output_dir
+        output_dir    = output_dir,
+        quiet         = quiet
       )
     )
   }
 
-  return(TRUE)
+  return(cat("Bon appétit"))
 }
 
