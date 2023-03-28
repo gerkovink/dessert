@@ -1,18 +1,26 @@
 ---
-output:
-  md_document:
-    variant: gfm
+output: github_document
 ---
 
-<!-- README.md is generated from README.Rmd. Please edit that file -->
+<!-- README.md is generated from README.Rmd. Please edit that file and render with devtools::build_readme() -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+
+# `dessert` <a href='https://www.gerkovink.com/dessert/'><img src="man/figures/hex_dessert.png" align="right" height="139" /></a>
 
 <!-- badges: start -->
 [![GitHub R packageversion](https://img.shields.io/github/r-package/v/gerkovink/dessert?color=yellow&label=dev)](https://github.com/gerkovink/dessert/blob/main/DESCRIPTION)
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![R-CMD-check](https://github.com/gerkovink/dessert/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/gerkovink/dessert/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
-
-# `dessert` <a href='https://github.com/gerkovink/dessert'><img  src="man/figures/hex_dessert.png" align="right" height="139" /></a>
 
 Your favorite analysis recipe should always be followed by your favorite dessert!
 
