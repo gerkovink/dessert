@@ -8,7 +8,7 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](h
 [![R-CMD-check](https://github.com/gerkovink/dessert/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/gerkovink/dessert/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
-# `dessert` <a href='https://github.com/gerkovink/dessert'><img src="man/figures/hex_dessert.png" align="right" height="139" /></a>
+# `dessert` <a href='https://github.com/gerkovink/dessert'><img  src="man/figures/hex_dessert.png" align="right" height="139" /></a>
 
 Your favourite analysis recipe should always be followed by your
 favourite dessert!
@@ -20,7 +20,7 @@ favourite dessert!
 We invite everyone to join the development for this package. You can
 view the progress and open issues and/or actions in the
 [`Have some dessert Project`](https://github.com/users/gerkovink/projects/2).
-Please adopt the folowing contribution workflow:
+Please adopt the following contribution workflow:
 
 1.  Fork this repo
 2.  In your own fork, create a new branch
