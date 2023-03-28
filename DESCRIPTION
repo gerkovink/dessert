@@ -23,5 +23,5 @@ RoxygenNote: 7.2.3
 Imports: 
     rmarkdown,
     rstudioapi
-URL: https://hanneoberman.github.io/dessert/
+URL: https://www.gerkovink.com/dessert/
 VignetteBuilder: knitr

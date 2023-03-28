@@ -42,3 +42,5 @@ vignettes/*.pdf
 .Rdata
 docs
 inst/doc
+/doc/
+/Meta/

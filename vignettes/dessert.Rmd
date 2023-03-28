@@ -20,10 +20,10 @@ The `dessert` package allows you to automatically generate methodological append
 
 # Set-up
 
-<!-- You can install the latest `ggmice` release from [CRAN](https://CRAN.R-project.org/package=ggmice) with: -->
+<!-- You can install the latest `dessert` release from [CRAN](https://CRAN.R-project.org/package=ggmice) with: -->
 
 <!-- ``` r -->
-<!-- install.packages("ggmice") -->
+<!-- install.packages("dessert") -->
 <!-- ``` -->
 
 The development version of the `dessert` package can be installed from GitHub with: 
