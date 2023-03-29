@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file and render with devtools::build_readme() -->
 
-# `dessert` <a href='https://www.gerkovink.com/dessert/'><img src="man/figures/hex_dessert.png" align="right" height="139" /></a>
+# `dessert`<a href='https://www.gerkovink.com/dessert/'><img src="man/figures/logo.png" style="float:right; height:139px;" /></a>
 
 <!-- badges: start -->
 
@@ -13,7 +13,8 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](h
 <!-- badges: end -->
 
 Your favorite analysis recipe should always be followed by your favorite
-dessert!
+dessert! Read all about it in the package vignette:
+[gerkovink.com/dessert](https://www.gerkovink.com/dessert/articles/dessert).
 
 ------------------------------------------------------------------------
 
@@ -31,7 +32,7 @@ Please adopt the following contribution workflow:
 
 ------------------------------------------------------------------------
 
-## Funding <a href='https://www.uu.nl/en' target="_blank"><img src='man/figures/logo_uu.png' align="right" height="139" /></a>
+## Funding <a href='https://www.uu.nl/en' target="_blank"><img src='man/figures/uu.png' align="right" height="139" /></a>
 
 This project has been funded by the 2022 Open Science Fund at Utrecht
 University. The repository with the Fund application form [can be found

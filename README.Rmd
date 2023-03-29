@@ -4,6 +4,8 @@ output: github_document
 
 <!-- README.md is generated from README.Rmd. Please edit that file and render with devtools::build_readme() -->
 
+# `dessert`<a href='https://www.gerkovink.com/dessert/'><img src="man/figures/logo.png" style="float:right; height:139px;" /></a>
+
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
@@ -13,16 +15,13 @@ knitr::opts_chunk$set(
 )
 ```
 
-
-# `dessert` <a href='https://www.gerkovink.com/dessert/'><img src="man/figures/hex_dessert.png" align="right" height="139" /></a>
-
 <!-- badges: start -->
 [![GitHub R packageversion](https://img.shields.io/github/r-package/v/gerkovink/dessert?color=yellow&label=dev)](https://github.com/gerkovink/dessert/blob/main/DESCRIPTION)
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![R-CMD-check](https://github.com/gerkovink/dessert/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/gerkovink/dessert/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
-Your favorite analysis recipe should always be followed by your favorite dessert!
+Your favorite analysis recipe should always be followed by your favorite dessert! Read all about it in the package vignette: [gerkovink.com/dessert](https://www.gerkovink.com/dessert/articles/dessert).
 
 ---
 
@@ -36,7 +35,7 @@ We invite everyone to join the development for this package. You can view the pr
 
 ---
 
-## Funding <a href='https://www.uu.nl/en' target="_blank"><img src='man/figures/logo_uu.png' align="right" height="139" /></a>
+## Funding <a href='https://www.uu.nl/en' target="_blank"><img src='man/figures/uu.png' align="right" height="139" /></a>
 This project has been funded by the 2022 Open Science Fund at Utrecht University. The repository with the Fund application form [can be found here](https://github.com/gerkovink/OpenScienceFund2022). 
 
 ---
