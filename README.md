@@ -13,7 +13,7 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](h
 <!-- badges: end -->
 
 Your favorite analysis recipe should always be followed by your favorite
-dessert! Read all about it in the package vignette:
+dessert! Read all about it in the ‘Get started’ vignette on
 [gerkovink.com/dessert](https://www.gerkovink.com/dessert/articles/dessert).
 
 ------------------------------------------------------------------------
@@ -43,6 +43,15 @@ here](https://github.com/gerkovink/OpenScienceFund2022).
 ## Acknowledgement
 
 Thanks to Ernst Paul for creating the delicious hexagon.
+
+------------------------------------------------------------------------
+
+## Code of Conduct
+
+Please note that the dessert project is released with a [Contributor
+Code of
+Conduct](https://www.gerkovink.com/dessert/CODE_OF_CONDUCT.html). By
+contributing to this project, you agree to abide by its terms.
 
 ------------------------------------------------------------------------
 

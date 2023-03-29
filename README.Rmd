@@ -21,7 +21,7 @@ knitr::opts_chunk$set(
 [![R-CMD-check](https://github.com/gerkovink/dessert/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/gerkovink/dessert/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
-Your favorite analysis recipe should always be followed by your favorite dessert! Read all about it in the package vignette: [gerkovink.com/dessert](https://www.gerkovink.com/dessert/articles/dessert).
+Your favorite analysis recipe should always be followed by your favorite dessert! Read all about it in the 'Get started' vignette on [gerkovink.com/dessert](https://www.gerkovink.com/dessert/articles/dessert).
 
 ---
 
@@ -42,6 +42,12 @@ This project has been funded by the 2022 Open Science Fund at Utrecht University
 
 ## Acknowledgement
 Thanks to Ernst Paul for creating the delicious hexagon.
+
+---
+
+## Code of Conduct
+
+Please note that the dessert project is released with a [Contributor Code of Conduct](https://www.gerkovink.com/dessert/CODE_OF_CONDUCT.html). By contributing to this project, you agree to abide by its terms.
 
 ---
 
