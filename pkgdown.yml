@@ -3,7 +3,7 @@ pkgdown: 2.0.7
 pkgdown_sha: ~
 articles:
   dessert: dessert.html
-last_built: 2023-03-29T12:57Z
+last_built: 2023-03-29T13:51Z
 urls:
   reference: https://www.gerkovink.com/dessert/reference
   article: https://www.gerkovink.com/dessert/articles
