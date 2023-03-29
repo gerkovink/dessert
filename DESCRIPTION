@@ -25,4 +25,5 @@ Imports:
     rmarkdown,
     rstudioapi
 URL: https://www.gerkovink.com/dessert/
+BugReports: https://github.com/gerkovink/dessert/issues
 VignetteBuilder: knitr
