@@ -10,22 +10,10 @@
 #'
 #' @md
 #' @export
-dessert.lm <- function(
-  object,
-  from,
-  recipe,
-  output_dir,
-  output_format = "all",
-  quiet         = TRUE) {
+dessert.lm <- function(dessert, ...) {
+  print("dessert.lm")
 
-  # copy the recipe to the output folder
-  dessert_copy(from, recipe, output_dir)
+  dessert@parameters <- list(a = 123)
 
-  # copy the recipe to the output folder
-  dessert_save(object, from, recipe, output_dir)
-
-  # render the files
-  dessert_cook(from, recipe, output_dir, output_format, quiet)
-
-  return(TRUE)
+  return(dessert)
 }
