@@ -10,10 +10,10 @@
 #'
 #' @md
 #' @export
-dessert.lm <- function(dessert, ...) {
+dessert.lm <- function(self, ...) {
   print("dessert.lm")
 
-  dessert@parameters <- list(a = 123)
 
-  return(dessert)
+
+  return(self)
 }

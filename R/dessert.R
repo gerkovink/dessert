@@ -1,5 +1,7 @@
 #' \pkg{Dessert} recipes
 #'
+#' @md
+#'
 #' @description Run a \pkg{Dessert} recipe on a data set or model to create a
 #' reproducible standard publication archive.
 #'
@@ -7,17 +9,14 @@
 #' @param cls A string that specifying a class from the input data or model.
 #' @param from A string specifying the package from which the input data set or model originates.
 #' @param recipe A string specifying a \pkg{Dessert} recipe associated with the input data set or model. See the recipe book in details for available recipes. The default behavior is to match all desserts if no recipe is specified.
+#' @param output_dir A string specifying the output directory for the output files.
 #' @param output_format A string specifying the output format of the \code{quarto} document. Available ouput formats are `"html"`, `"pdf"`, and `"docx"`. By default, all output formats are provided.
-#' @param output_dir A string specifying the output directory for the output files.
-#' @param output_dir A string specifying the output directory for the output files.
 #'
 #' @details The \pkg{Dessert} recipe book:
 #'
 #' | **class**   | **from**   | **recipe(s)**                | **details**      |
 #' |-------------|------------|------------------------------|------------------|
 #' | `lm`        | `stats`    | `"regression"`, `"ancova"`   | [dessert.lm()]   |
-#'
-#' @md
 #'
 #' @return A reproducible standard publication archive with the following folder structure:
 #' \preformatted{
@@ -46,19 +45,20 @@ dessert <- function(
     recipe        = NULL,
     output_dir    = NULL,
     output_format = "all",
-    quiet         = TRUE) {
+    ...) {
 
-  output <- Dessert$new(
+  dessert <- Dessert$new(
     input         = input,
     cls           = cls,
     from          = from,
     recipe        = recipe,
     output_dir    = output_dir,
-    output_format = output_format
+    output_format = output_format,
+    ...
   )
-  output$render()
+  dessert$render()
 
-  return(output)
+  return(dessert)
 }
 
 
@@ -75,6 +75,8 @@ Dessert <- R6::R6Class(
         output_format = "all",
         ...) {
       print("method initialize")
+
+      self$input <- input
 
       if (is.null(cls)) {
         cls <- class(input)
@@ -103,7 +105,7 @@ Dessert <- R6::R6Class(
       }
 
       if (nrow(options) == 0L) {
-        stop("There is no recipe available.")
+        stop("There is no dessert available.")
       }
       if (nrow(options) > 1L) {
         mat <- as.matrix(options)
@@ -111,7 +113,7 @@ Dessert <- R6::R6Class(
         mat <- rbind(colnames(mat), mat)
         mat <- apply(mat, 2, format)
 
-        cat("There are multiple recipes available.\n\n")
+        cat("There are multiple desserts available.\n\n")
         for (i in 1:nrow(mat)) {
           cat(mat[i,1], mat[i,2], mat[i,3], mat[i,4], "\n", sep = "   ")
         }
@@ -123,7 +125,7 @@ Dessert <- R6::R6Class(
           stop("Input is not valid.")
         }
         if (input == "None") {
-          stop("Kitchen is closed")
+          stop("Kitchen is closed.")
         }
         options <- options[input,]
       }
@@ -144,17 +146,165 @@ Dessert <- R6::R6Class(
           }
         }
       }
+
+      private$.output_dir <- paste(
+        private$.output_dir,
+        paste0("dessert_", format(Sys.time(), "%Y-%m-%d_%H_%M_%S")),
+        sep = '/'
+      )
+
+      do.call(
+        paste("dessert", private$.cls, sep = "."),
+        args = list(self = self)
+      )
     },
-    render = function() {
+    render = function(...) {
       print("method render")
+
+      dir_pkg <- system.file(package = "dessert")
+
+      dir_qmd <- paste(
+        dir_pkg, "qmd", self$cls, paste(self$recipe, "qmd", sep = "."),
+        sep = "/"
+      )
+      if (file.exists(dir_qmd)) {
+        cat("\033[31mdessert: qmd located\n\n\033[0m")
+      } else {
+        stop("Quarto markdown not found")
+      }
+
+      dir_files <- grep("\\.png)", readLines(dir_qmd), value = TRUE)
+      dir_files <- gsub(".*/(.*?)\\).*", "\\1", dir_files)
+      if (length(dir_files) > 0) {
+        dir_files <- paste(
+          system.file(package = "dessert"), "help", "figures", dir_files,
+          sep = "/"
+        )
+        files_exist <- file.exists(dir_files)
+        if (all(files_exist)) {
+          cat("\033[31mdessert: figures located\n\n\033[0m")
+        } else {
+          stop("Following figures not found: ", dir_files[!files_exist])
+        }
+      }
+
+      if (file.exists(self$output_dir)) {
+        stop(
+          "Dessert cannot be served on: ", self$output_dir, ".",
+          "Please provide a unique output directory."
+        )
+      } else {
+        dir.create(self$output_dir)
+        if (length(dir_files) > 0) {
+          output_files <- paste(self$output_dir, self$recipe, sep = "/")
+          dir.create(output_files)
+        }
+        cat("\033[31mdessert: output folder created\n\n\033[0m")
+      }
+
+      if (file.copy(from = dir_qmd, to = self$output_dir, overwrite = FALSE)) {
+        cat("\033[31mdessert: qmd copies\n\n\033[0m")
+      } else {
+        stop("Quarto markdown file not copied")
+      }
+      if (length(dir_files) > 0) {
+        if (
+          all(
+            file.copy(
+              from = dir_files,
+              to = output_files,
+              overwrite = FALSE
+            )
+          )
+        ) {
+          cat("\033[31mdessert: figures copied\n\n\033[0m")
+        } else {
+          stop("Figures not copied")
+        }
+      }
+
+      input <- self$input
+      save(
+        input = input,
+        file = paste(
+          self$output_dir,
+          paste(self$recipe, "rdata", sep = "."),
+          sep = "/"
+        )
+      )
+      cat("\033[31mdessert: input object saved\n\n\033[0m")
+
+      quarto::quarto_render(
+        input         = paste(
+          self$output_dir,
+          paste(self$recipe, "qmd", sep = "."),
+          sep = "/"
+        ),
+        output_format = self$output_format,
+        quiet         = FALSE
+      )
+    },
+    change_dessert = function(cls, from, recipe) {
+      print("method change_dessert")
+
+      if (nrow(merge(data.frame(class = cls, from, recipe), recipes)) > 0) {
+        private$.cls <- cls
+        private$.from <- from
+        private$.recipe <- recipe
+      } else {
+        if (!cls %in% recipes$class) {
+          stop("Invalid cls field.")
+        }
+        if (!from %in% recipes$from) {
+          stop("Invalid from field.")
+        }
+        if (!recipe %in% recipes$recipe) {
+          stop("Invalid recipe field.")
+        }
+      }
+    },
+    print = function(...) {
+      cat("my print")
     }
   ),
   private = list(
     .cls = NA,
     .from = NA,
     .recipe = NA,
-    .output_dir = NA
-  )
+    .output_dir = NA,
+    .output_format = NA
+  ),
+  active = list(
+    cls = function(value = NULL) {
+      if (is.null(value)) {
+        private$.cls
+      } else {
+        stop("Field cls is read-only. Use the method change_dessert().")
+      }
+    },
+    from = function(value = NULL) {
+      if (is.null(value)) {
+        private$.from
+      } else {
+        stop("Field from is read-only. Use the method change_dessert().")
+      }
+    },
+    recipe = function(value = NULL) {
+      if (is.null(value)) {
+        private$.recipe
+      } else {
+        stop("Field recipe is read-only. Use the method change_dessert().")
+      }
+    },
+    output_dir = function(value = NULL) {
+      if (is.null(value)) {
+        private$.output_dir
+      } else {
+        stop("Field output_dir is read-only.")
+      }
+    }
+  ),
+  cloneable = FALSE
 )
 
 

@@ -4,7 +4,7 @@
 \alias{dessert.lm}
 \title{\pkg{Dessert} recipes for class \code{lm}}
 \usage{
-dessert.lm(dessert, ...)
+dessert.lm(self, ...)
 }
 \description{
 \pkg{Dessert} recipe(s) for objects with class \code{lm} from the \code{stats} package.

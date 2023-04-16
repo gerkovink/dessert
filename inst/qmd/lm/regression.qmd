@@ -21,6 +21,7 @@ load("regression.rdata")
 
 ![](regression/figure_1.png)
 
+Here is some additional text.
 
 ![](regression/figure_2.png)
 
