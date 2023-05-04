@@ -1,0 +1,80 @@
+---
+title: "Get started"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{dessert}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+library(mice)
+```
+
+# The `dessert` package
+
+The `dessert` package allows you to automatically generate methodological appendices for your research workflows. Just supply a data or model object, and `dessert` will cook up something sweet! The package is still under development, so please contribute your own `dessert` recipe if you're missing one. The resulting reports can be exported in different document formats (e.g., HTML or PDF) and are easy to share. Let's open up your research workflow and whip up a `dessert`!
+
+# Set-up
+
+<!-- You can install the latest `dessert` release from [CRAN](https://CRAN.R-project.org/package=ggmice) with: -->
+
+<!-- ``` r -->
+<!-- install.packages("dessert") -->
+<!-- ``` -->
+
+The development version of the `dessert` package can be installed from GitHub with: 
+
+```{r install, echo=TRUE, eval=FALSE}
+# install.packages("devtools")
+devtools::install_github("gerkovink/dessert")
+```
+
+After installing `dessert`, you can load the package into your `R` workspace:
+
+```{r setup, warning = FALSE, message = FALSE}
+library(dessert) 
+```
+
+The data we'll use in this vignette is the `boys` dataset from the `mice` package. This is an incomplete dataset ($n = 748$) with cross-sectional data on $9$ growth-related variables. We load the incomplete data with:
+
+```{r data, warning = FALSE, message = FALSE}
+library(mice)
+str(boys)
+```
+
+This is an incomplete dataset. Therefore, we'll request a missing data `dessert`.
+
+## Missing data `dessert`
+
+Run the `dessert()` function on the incomplete dataset:
+
+```{r miss, eval = FALSE}
+dessert(boys)
+```
+
+After inspecting the missingness, we can perform an analysis.
+
+## Linear regression `dessert`
+
+We'll use a simple linear regression model to predict boys' height from their age: 
+
+```{r lm, eval = FALSE}
+mod <- lm(hgt~age, boys)
+dessert(mod)
+```
+
+
+___
+
+#
+
+This is the end of the vignette. This document was generated using:
+
+```{r session, class.source = 'fold-hide'}
+sessionInfo()
+```

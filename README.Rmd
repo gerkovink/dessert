@@ -1,10 +1,19 @@
 ---
-output:
-  md_document:
-    variant: gfm
+output: github_document
 ---
 
-<!-- README.md is generated from README.Rmd. Please edit that file -->
+<!-- README.md is generated from README.Rmd. Please edit that file and render with devtools::build_readme() -->
+
+# `dessert`<a href='https://www.gerkovink.com/dessert/'><img src="man/figures/logo.png" style="float:right; height:139px;" /></a>
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
 
 <!-- badges: start -->
 [![GitHub R packageversion](https://img.shields.io/github/r-package/v/gerkovink/dessert?color=yellow&label=dev)](https://github.com/gerkovink/dessert/blob/main/DESCRIPTION)
@@ -12,9 +21,7 @@ output:
 [![R-CMD-check](https://github.com/gerkovink/dessert/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/gerkovink/dessert/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
-# `dessert` <a href='https://github.com/gerkovink/dessert'><img src="man/figures/hex_dessert.png" align="right" height="139" /></a>
-
-Your favourite analysis recipe should always be followed by your favourite dessert!
+Your favorite analysis recipe should always be followed by your favorite dessert! Read all about it in the 'Get started' vignette on [gerkovink.com/dessert](https://www.gerkovink.com/dessert/articles/dessert).
 
 ---
 
@@ -28,13 +35,19 @@ We invite everyone to join the development for this package. You can view the pr
 
 ---
 
-## Funding <a href='https://www.uu.nl/en' target="_blank"><img src='man/figures/logo_uu.png' align="right" height="139" /></a>
+## Funding <a href='https://www.uu.nl/en' target="_blank"><img src='man/figures/uu.png' align="right" height="139" /></a>
 This project has been funded by the 2022 Open Science Fund at Utrecht University. The repository with the Fund application form [can be found here](https://github.com/gerkovink/OpenScienceFund2022). 
 
 ---
 
 ## Acknowledgement
 Thanks to Ernst Paul for creating the delicious hexagon.
+
+---
+
+## Code of Conduct
+
+Please note that the dessert project is released with a [Contributor Code of Conduct](https://www.gerkovink.com/dessert/CODE_OF_CONDUCT.html). By contributing to this project, you agree to abide by its terms.
 
 ---
 
