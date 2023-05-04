@@ -43,6 +43,8 @@ dessert <- function(
     cls           = NULL,
     from          = NULL,
     recipe        = NULL,
+    quiet         = FALSE,
+    params        = list(seed = 1),
     output_dir    = NULL,
     output_format = "all",
     ...) {
@@ -52,6 +54,8 @@ dessert <- function(
     cls           = cls,
     from          = from,
     recipe        = recipe,
+    quiet         = quiet,
+    params        = params,
     output_dir    = output_dir,
     output_format = output_format,
     ...
@@ -71,6 +75,7 @@ Dessert <- R6::R6Class(
         cls = NULL,
         from = NULL,
         recipe = NULL,
+        params = NULL,
         output_dir = NULL,
         output_format = "all",
         ...) {
