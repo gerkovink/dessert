@@ -3,6 +3,8 @@
 #' @description
 #' \pkg{Dessert} recipe(s) for objects with class `lm` from the `stats` package.
 #'
+#' @param dessert An dessert object with cls lm.
+#'
 #' @details
 #'
 #' * ancova
@@ -10,10 +12,8 @@
 #'
 #' @md
 #' @export
-dessert.lm <- function(self, ...) {
+dessert.lm <- function(dessert, ...) {
   print("dessert.lm")
 
-
-
-  return(self)
+  return(dessert)
 }

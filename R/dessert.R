@@ -9,8 +9,11 @@
 #' @param cls A string that specifying a class from the input data or model.
 #' @param from A string specifying the package from which the input data set or model originates.
 #' @param recipe A string specifying a \pkg{Dessert} recipe associated with the input data set or model. See the recipe book in details for available recipes. The default behavior is to match all desserts if no recipe is specified.
+#' @param quiet A Boolean specifying to ignore the quarto render output.
+#' @param params A list specifying the quarto markdown parameters.
 #' @param output_dir A string specifying the output directory for the output files.
 #' @param output_format A string specifying the output format of the \code{quarto} document. Available ouput formats are `"html"`, `"pdf"`, and `"docx"`. By default, all output formats are provided.
+#' @param ... A ellipsis
 #'
 #' @details The \pkg{Dessert} recipe book:
 #'

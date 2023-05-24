@@ -9,6 +9,8 @@ dessert(
   cls = NULL,
   from = NULL,
   recipe = NULL,
+  quiet = FALSE,
+  params = list(seed = 1),
   output_dir = NULL,
   output_format = "all",
   ...
@@ -23,14 +25,20 @@ dessert(
 
 \item{recipe}{A string specifying a \pkg{Dessert} recipe associated with the input data set or model. See the recipe book in details for available recipes. The default behavior is to match all desserts if no recipe is specified.}
 
+\item{quiet}{A Boolean specifying to ignore the quarto render output.}
+
+\item{params}{A list specifying the quarto markdown parameters.}
+
 \item{output_dir}{A string specifying the output directory for the output files.}
 
 \item{output_format}{A string specifying the output format of the \code{quarto} document. Available ouput formats are \code{"html"}, \code{"pdf"}, and \code{"docx"}. By default, all output formats are provided.}
+
+\item{...}{some test.}
 }
 \value{
 A reproducible standard publication archive with the following folder structure:
 \preformatted{
-| - dessert_2023-04-06_09_30_24/
+| - dessert_2023-05-24_22_21_07/
   | - recipe.RData
   | - recipe.qmd
   | - recipe.html
