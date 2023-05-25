@@ -163,7 +163,7 @@ Dessert <- R6::R6Class(
 
       do.call(
         paste("dessert", private$.cls, sep = "."),
-        args = list(self = self)
+        args = list(dessert = dessert)
       )
     },
     render = function(...) {

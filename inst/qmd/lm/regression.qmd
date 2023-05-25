@@ -7,7 +7,7 @@ authors:
       - name: Utrecht University 
         city: Utrecht
         state: Utrecht
-  - name: "H. Obermans"
+  - name: "H. I. Oberman"
   - name: "E. P. Swens"
 format:  
   html:
