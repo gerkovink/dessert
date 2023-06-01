@@ -14,7 +14,6 @@ Description: Dessert recipes for automatic and standardized report generation
     for common analysis and data problems.
 License: AGPL (>= 3)
 Encoding: UTF-8
-LazyData: true
 Suggests: 
     knitr,
     mice,
@@ -22,7 +21,7 @@ Suggests:
 Config/testthat/edition: 3
 RoxygenNote: 7.2.3
 Imports: 
-    rmarkdown,
+    R6,
     rstudioapi
 URL: https://www.gerkovink.com/dessert/
 BugReports: https://github.com/gerkovink/dessert/issues
