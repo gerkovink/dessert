@@ -1,10 +1,10 @@
 # Create a linear model
-fit <- lm(dist ~ speed, data = cars)
+fit <- lm(Petal.Length ~ ., data = iris)
 testthat::expect_true(class(fit) == "lm")
 # Test if runs
-testthat::expect_no_error(dessert(fit, output_format = "html_document"))
+testthat::expect_no_error(dessert(fit, recipe = "regression"))
 # Test if storage location is communicated
-testthat::expect_output(dessert(fit, output_format = "html_document"))
+testthat::expect_output(dessert(fit, recipe = "regression"))
 # Test if files are produced
 testthat::expect_true(file.exists("dessert_envir.RData"))
 testthat::expect_true(file.exists("lm.Rmd"))

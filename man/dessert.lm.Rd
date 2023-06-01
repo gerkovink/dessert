@@ -2,31 +2,19 @@
 % Please edit documentation in R/dessert.lm.R
 \name{dessert.lm}
 \alias{dessert.lm}
-\title{Run a dessert recipe on an analysis or data set}
+\title{\pkg{Dessert} recipes for class \code{lm}}
 \usage{
-dessert.lm(data, output_format = NULL, output_dir = NULL)
+dessert.lm(dessert, ...)
 }
 \arguments{
-\item{data}{The input data set or fit object to call dessert on.}
-
-\item{output_format}{The R markdown output format parsed to `rmarkdown`.}
-
-\item{output_dir}{The output directory for the rendered output files.}
-}
-\value{
-A reproducible standard publication archive
+\item{dessert}{An dessert object with cls lm.}
 }
 \description{
-Run a dessert recipe on an analysis or data set
+\pkg{Dessert} recipe(s) for objects with class \code{lm} from the \code{stats} package.
 }
-\examples{
-
-# Call a lm dessert on a fitted linear model
-
-fit <- lm(dist ~ speed, data = cars)
-dessert.lm(fit, output_format = "html_document")
-
-# Remove the generated files in R-CMD-Check
-# Don't run as an example in real life
-unlink(c("dessert_envir.RData", "lm.Rmd", "lm.html"))
+\details{
+\itemize{
+\item ancova
+\item regression
+}
 }

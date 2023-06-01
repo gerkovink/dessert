@@ -2,26 +2,66 @@
 % Please edit documentation in R/dessert.R
 \name{dessert}
 \alias{dessert}
-\title{Run a dessert recipe on an analysis or data set}
+\title{\pkg{Dessert} recipes}
 \usage{
-dessert(data, output_format = NULL, output_dir = NULL)
+dessert(
+  input,
+  cls = NULL,
+  from = NULL,
+  recipe = NULL,
+  quiet = FALSE,
+  params = list(seed = 1),
+  output_dir = NULL,
+  output_format = "all",
+  ...
+)
 }
 \arguments{
-\item{data}{The input data set or fit object to call dessert on.}
+\item{input}{The input data set or model which forms the base of the dessert.}
 
-\item{output_format}{The R markdown output format parsed to `rmarkdown`.}
+\item{cls}{A string that specifying a class from the input data or model.}
 
-\item{output_dir}{The output directory for the rendered output files.}
+\item{from}{A string specifying the package from which the input data set or model originates.}
+
+\item{recipe}{A string specifying a \pkg{Dessert} recipe associated with the input data set or model. See the recipe book in details for available recipes. The default behavior is to match all desserts if no recipe is specified.}
+
+\item{quiet}{A Boolean specifying to ignore the quarto render output.}
+
+\item{params}{A list specifying the quarto markdown parameters.}
+
+\item{output_dir}{A string specifying the output directory for the output files.}
+
+\item{output_format}{A string specifying the output format of the \code{quarto} document. Available ouput formats are \code{"html"}, \code{"pdf"}, and \code{"docx"}. By default, all output formats are provided.}
+
+\item{...}{some test.}
 }
 \value{
-A reproducible standard publication archive
+A reproducible standard publication archive with the following folder structure:
+\preformatted{
+| - dessert_2023-05-24_22_21_07/
+  | - recipe.RData
+  | - recipe.qmd
+  | - recipe.html
+  | - recipe.pdf
+  | - recipe.docx
+  | - recipe/
+    | - figure_1.png
+    | - ...
+}
 }
 \description{
-Run a dessert recipe on an analysis or data set
+Run a \pkg{Dessert} recipe on a data set or model to create a
+reproducible standard publication archive.
+}
+\details{
+The \pkg{Dessert} recipe book:\tabular{llll}{
+   \strong{class} \tab \strong{from} \tab \strong{recipe(s)} \tab \strong{details} \cr
+   \code{lm} \tab \code{stats} \tab \code{"regression"}, \code{"ancova"} \tab \code{\link[=dessert.lm]{dessert.lm()}} \cr
+}
 }
 \examples{
 \dontrun{
 fit <- lm(dist ~ speed, data = cars)
-dessert(fit)
+dessert(fit, recipe = "regression")
 }
 }
